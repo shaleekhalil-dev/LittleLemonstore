@@ -69,6 +69,7 @@
         }
         .menu-card:hover { background: var(--vibrant-lemon); transform: scale(1.1); }
         .menu-card i { font-size: 2.5rem; display: block; margin-bottom: 15px; }
+        .menu-card h4 { margin: 0; color: var(--dark-green); font-size: 1.1rem; }
 
         #notif-container { position: fixed; bottom: 30px; right: 30px; z-index: 10000; }
         .notification {
@@ -128,7 +129,7 @@
                 <div class="menu-card"><i>🍔</i><h4 id="c1">Fast Food</h4></div>
                 <div class="menu-card"><i>🥘</i><h4 id="c2">Main Dishes</h4></div>
                 <div class="menu-card"><i>🍳</i><h4 id="c3">Breakfast</h4></div>
-                <div class="menu-card)<i>🍝</i><h4 id="c4">Lunch</h4></div>
+                <div class="menu-card"><i>🍝</i><h4 id="c4">Lunch</h4></div>
                 <div class="menu-card"><i>🥗</i><h4 id="c5">Dinner</h4></div>
                 <div class="menu-card"><i>☕</i><h4 id="c6">Drinks</h4></div>
                 <div class="menu-card"><i>💨</i><h4 id="c7">Shisha</h4></div>
@@ -176,6 +177,7 @@
 
         function showNotif(text) {
             const container = document.getElementById('notif-container');
+            if(!container) return;
             const n = document.createElement('div'); n.className = 'notification'; n.innerHTML = text;
             container.appendChild(n);
             setTimeout(() => n.classList.add('show'), 100);
