@@ -3,77 +3,92 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Little Lemon | Full Experience</title>
+    <title>Little Lemon | The Full Experience</title>
     <style>
         :root {
+            /* الألوان الليمونية الفاتحة جداً والراقية */
             --vibrant-lemon: #FDFCE0; 
             --accent-lemon: #FEF7A5; 
             --dark-green: #495E57;
             --text-dark: #333;
             --white: #ffffff;
+            --soft-gray: #f9f9f9;
         }
 
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0; padding: 0;
-            background-color: #fcfcfc;
+            background-color: var(--soft-gray);
             color: var(--text-dark);
         }
 
-        header { background-color: var(--dark-green); padding: 10px 25px; display: flex; justify-content: space-between; align-items: center; }
-        .main-logo { max-width: 120px; }
-        .lang-switch { background: var(--vibrant-lemon); border: 1px solid var(--accent-lemon); padding: 8px 15px; border-radius: 15px; cursor: pointer; font-weight: bold; }
+        /* الهيدر والناف بار */
+        header { background-color: var(--dark-green); padding: 15px 30px; display: flex; justify-content: space-between; align-items: center; }
+        .main-logo { max-width: 130px; }
+        .lang-switch { background: var(--vibrant-lemon); border: 1px solid var(--accent-lemon); padding: 8px 18px; border-radius: 20px; cursor: pointer; font-weight: bold; transition: 0.3s; }
+        .lang-switch:hover { background: var(--accent-lemon); }
 
-        nav { background-color: var(--vibrant-lemon); padding: 12px 0; position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
+        nav { background-color: var(--vibrant-lemon); padding: 12px 0; position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
         .nav-links { list-style: none; display: flex; justify-content: center; margin: 0; padding: 0; }
-        .nav-links li { margin: 0 15px; }
-        .nav-links a { text-decoration: none; color: var(--dark-green); font-weight: bold; }
+        .nav-links li { margin: 0 20px; }
+        .nav-links a { text-decoration: none; color: var(--dark-green); font-weight: bold; font-size: 1.1rem; }
 
+        /* البانر الرئيسي */
         .hero {
             background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('Asset 20@4x.png');
             background-size: cover; background-position: center;
-            height: 300px; display: flex; align-items: center; justify-content: center; text-align: center; color: white;
+            height: 350px; display: flex; align-items: center; justify-content: center; text-align: center; color: white;
         }
+        .hero h1 { font-size: 3.5rem; margin: 0; }
 
-        /* قسم قصتنا المطور */
-        .about-section { padding: 40px 10%; text-align: center; background: white; }
+        /* قسم قصتنا مع المربعات */
+        .about-section { padding: 50px 10%; text-align: center; background: white; }
         .about-container { 
-            max-width: 800px; margin: 0 auto; padding: 30px; 
-            border: 2px solid var(--vibrant-lemon); border-radius: 20px; 
-            position: relative; background: rgba(253, 252, 224, 0.2);
+            max-width: 850px; margin: 0 auto; padding: 40px; 
+            border: 2px solid var(--vibrant-lemon); border-radius: 30px; 
+            position: relative; background: rgba(253, 252, 224, 0.1);
         }
-        .about-container::before { content: '“'; position: absolute; top: -20px; left: 20px; font-size: 4rem; color: var(--accent-lemon); }
-
-        /* أقسام المنيو */
-        .menu-section { padding: 40px 10%; text-align: center; }
-        .menu-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 15px; margin-top: 20px; }
-        .menu-card {
-            background: var(--white); padding: 15px; border-radius: 15px;
-            border: 1px solid var(--vibrant-lemon); box-shadow: 0 4px 8px rgba(0,0,0,0.02);
-            transition: 0.3s; cursor: pointer;
+        .about-container::before, .about-container::after {
+            content: ''; position: absolute; width: 30px; height: 30px; border: 3px solid var(--accent-lemon);
         }
-        .menu-card:hover { background: var(--vibrant-lemon); transform: scale(1.05); }
+        .about-container::before { top: -10px; left: -10px; border-right: 0; border-bottom: 0; }
+        .about-container::after { bottom: -10px; right: -10px; border-left: 0; border-top: 0; }
 
-        /* المربعات القديمة (أطباق مختارة) */
-        .features-flex { display: flex; justify-content: center; padding: 40px 10%; gap: 25px; background: #f9f9f9; }
+        /* المربعات القديمة (سلطات وحلويات) */
+        .features-flex { display: flex; justify-content: center; padding: 40px 10%; gap: 30px; background: var(--soft-gray); }
         .feature-item { 
-            flex: 1; max-width: 400px; background: white; border-radius: 20px; 
-            overflow: hidden; box-shadow: 0 10px 20px rgba(0,0,0,0.05); border: 1px solid var(--vibrant-lemon);
+            flex: 1; max-width: 450px; background: white; border-radius: 25px; 
+            overflow: hidden; box-shadow: 0 10px 25px rgba(0,0,0,0.05); border: 1px solid var(--vibrant-lemon);
+            transition: 0.3s;
         }
-        .feature-item img { width: 100%; height: 200px; object-fit: cover; }
-        .feature-item h3 { margin: 15px; color: var(--dark-green); }
-        .feature-item p { padding: 0 15px 20px; font-size: 0.9rem; color: #666; }
+        .feature-item:hover { transform: translateY(-10px); }
+        .feature-item img { width: 100%; height: 250px; object-fit: cover; }
+        .feature-item h3 { margin: 20px; color: var(--dark-green); font-size: 1.5rem; }
+        .feature-item p { padding: 0 20px 30px; color: #555; line-height: 1.6; }
 
-        /* الإشعارات */
-        #notif-container { position: fixed; bottom: 20px; right: 20px; z-index: 9999; }
+        /* أقسام المنيو الجديدة (المربعات السبعة) */
+        .menu-section { padding: 60px 10%; text-align: center; background: white; }
+        .menu-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 20px; margin-top: 30px; }
+        .menu-card {
+            background: var(--white); padding: 25px; border-radius: 20px;
+            border: 2px solid var(--vibrant-lemon); box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+            transition: 0.3s; cursor: pointer; text-align: center;
+        }
+        .menu-card:hover { background: var(--vibrant-lemon); transform: scale(1.1); border-color: var(--accent-lemon); }
+        .menu-card i { font-size: 2.5rem; display: block; margin-bottom: 15px; }
+        .menu-card h4 { margin: 0; color: var(--dark-green); font-size: 1.1rem; }
+
+        /* نظام الإشعارات */
+        #notif-container { position: fixed; bottom: 30px; right: 30px; z-index: 10000; }
         .notification {
-            background: white; padding: 15px 25px; margin-top: 10px; border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1); border-left: 5px solid var(--accent-lemon);
-            transform: translateX(150%); transition: 0.5s ease;
+            background: white; padding: 18px 30px; margin-top: 15px; border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15); border-left: 6px solid var(--accent-lemon);
+            transform: translateX(180%); transition: 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            font-weight: bold; display: flex; align-items: center; gap: 10px;
         }
         .notification.show { transform: translateX(0); }
 
-        footer { background: var(--dark-green); color: white; padding: 20px; text-align: center; }
+        footer { background: var(--dark-green); color: white; padding: 30px; text-align: center; }
     </style>
 </head>
 <body>
@@ -91,62 +106,64 @@
         </ul>
     </nav>
 
-    <section class="hero">
-        <div><h1 id="h-title">Little Lemon</h1><p id="h-desc">Mediterranean Flavors</p></div>
-    </section>
+    <main>
+        <section class="hero">
+            <div><h1 id="h-title">Little Lemon</h1><p id="h-desc">Mediterranean Flavors At Their Best</p></div>
+        </section>
 
-    <section class="about-section">
-        <h2 id="ab-t">Our Story</h2>
-        <div class="about-container">
-            <p id="ab-p">Welcome to Little Lemon, where we bring the authentic flavors of the Mediterranean straight to your table. We use only the freshest ingredients.</p>
-        </div>
-    </section>
+        <section class="about-section">
+            <h2 id="ab-t">Our Story</h2>
+            <div class="about-container">
+                <p id="ab-p">Welcome to Little Lemon, where we bring the authentic flavors of the Mediterranean straight to your table. Our chefs use only the freshest ingredients to create healthy and delicious meals.</p>
+            </div>
+        </section>
 
-    <section class="features-flex">
-        <div class="feature-item">
-            <img src="Asset 9@4x.png">
-            <h3 id="f1-t">Fresh Salad</h3>
-            <p id="f1-d">Healthy and delicious, made with seasonal ingredients.</p>
-        </div>
-        <div class="feature-item">
-            <img src="Asset 14@4x.png">
-            <h3 id="f2-t">Desserts</h3>
-            <p id="f2-d">Authentic lemon flavor that will leave you wanting more.</p>
-        </div>
-    </section>
+        <section class="features-flex">
+            <div class="feature-item">
+                <img src="Asset 9@4x.png">
+                <h3 id="f1-t">Fresh Salad</h3>
+                <p id="f1-d">Healthy and delicious, made with seasonal ingredients and traditional spices.</p>
+            </div>
+            <div class="feature-item">
+                <img src="Asset 14@4x.png">
+                <h3 id="f2-t">Desserts</h3>
+                <p id="f2-d">Authentic lemon flavor and Mediterranean sweets that you will love.</p>
+            </div>
+        </section>
 
-    <section class="menu-section">
-        <h2 id="m-title">Our Categories</h2>
-        <div class="menu-grid">
-            <div class="menu-card"><i>🍔</i><h4 id="c1">Fast Food</h4></div>
-            <div class="menu-card"><i>🥘</i><h4 id="c2">Main Dishes</h4></div>
-            <div class="menu-card"><i>🍳</i><h4 id="c3">Breakfast</h4></div>
-            <div class="menu-card"><i>🍝</i><h4 id="c4">Lunch</h4></div>
-            <div class="menu-card"><i>🥗</i><h4 id="c5">Dinner</h4></div>
-            <div class="menu-card"><i>☕</i><h4 id="c6">Drinks</h4></div>
-            <div class="menu-card"><i>💨</i><h4 id="c7">Shisha</h4></div>
-        </div>
-    </section>
+        <section class="menu-section">
+            <h2 id="m-title">Explore Our Menu</h2>
+            <div class="menu-grid">
+                <div class="menu-card"><i>🍔</i><h4 id="c1">Fast Food</h4></div>
+                <div class="menu-card"><i>🥘</i><h4 id="c2">Main Dishes</h4></div>
+                <div class="menu-card"><i>🍳</i><h4 id="c3">Breakfast</h4></div>
+                <div class="menu-card"><i>🍝</i><h4 id="c4">Lunch</h4></div>
+                <div class="menu-card"><i>🥗</i><h4 id="c5">Dinner</h4></div>
+                <div class="menu-card"><i>☕</i><h4 id="c6">Drinks</h4></div>
+                <div class="menu-card"><i>💨</i><h4 id="c7">Shisha</h4></div>
+            </div>
+        </section>
+    </main>
 
     <div id="notif-container"></div>
 
-    <footer><p>&copy; 2026 Little Lemon | Developed by Shalee Khalil</p></footer>
+    <footer><p>&copy; 2026 Little Lemon | Strategic Web Experience by Shalee Khalil</p></footer>
 
     <script>
         const data = {
             en: {
-                btn: "العربية", n1: "Home", n2: "Menu", n3: "Reservations", h1: "Little Lemon", hp: "Mediterranean Flavors",
-                ab_t: "Our Story", ab_p: "Welcome to Little Lemon, where we bring the authentic flavors of the Mediterranean straight to your table. We use only the freshest ingredients.",
-                f1t: "Fresh Salad", f1d: "Healthy and delicious.", f2t: "Desserts", f2d: "Authentic lemon flavor.",
-                mt: "Our Categories", c1: "Fast Food", c2: "Main Dishes", c3: "Breakfast", c4: "Lunch", c5: "Dinner", c6: "Drinks", c7: "Shisha",
-                msg: ["20% Discount on Fast Food!", "Free delivery on 3+ meals!", "Try our new Shisha!"]
+                btn: "العربية", n1: "Home", n2: "Menu", n3: "Reservations", h1: "Little Lemon", hp: "Mediterranean Flavors At Their Best",
+                ab_t: "Our Story", ab_p: "Welcome to Little Lemon, where we bring the authentic flavors of the Mediterranean straight to your table. Our chefs use only the freshest ingredients to create healthy and delicious meals.",
+                f1t: "Fresh Salad", f1d: "Healthy and delicious, made with seasonal ingredients.", f2t: "Desserts", f2d: "Authentic lemon flavor and Mediterranean sweets.",
+                mt: "Explore Our Menu", c1: "Fast Food", c2: "Main Dishes", c3: "Breakfast", c4: "Lunch", c5: "Dinner", c6: "Drinks", c7: "Shisha",
+                msg: ["🍋 20% Discount on Fast Food!", "🚚 Free delivery on 3+ meals!", "💨 Try our new Shisha flavors!"]
             },
             ar: {
-                btn: "English", n1: "الرئيسية", n2: "المنيو", n3: "الحجوزات", h1: "ليتل ليمون", hp: "نكهات متوسطية طازجة",
-                ab_t: "قصتنا", ab_p: "مرحبًا بكم في ليتل ليمون، حيث نقدم لكم النكهات المتوسطية الأصيلة مباشرة إلى طاولتكم. نستخدم المكونات الطازجة فقط.",
-                f1t: "سلطة طازجة", f1d: "صحية وشهية جداً.", f2t: "الحلويات", f2d: "نكهة الليمون الأصلية.",
-                mt: "أقسامنا", c1: "وجبات سريعة", c2: "وجبات رئيسية", c3: "إفطار", c4: "غداء", c5: "عشاء", c6: "مشروبات", c7: "نرجيلة",
-                msg: ["خصم 20% على الوجبات السريعة!", "توصيل مجاني على الـ 3 وجبات!", "جرب نكهات النرجيلة الجديدة!"]
+                btn: "English", n1: "الرئيسية", n2: "المنيو", n3: "الحجوزات", h1: "ليتل ليمون", hp: "أفضل النكهات المتوسطية الأصيلة",
+                ab_t: "قصتنا", ab_p: "مرحبًا بكم في ليتل ليمون، حيث نقدم لكم النكهات المتوسطية الأصيلة مباشرة إلى طاولتكم. يستخدم طهاتنا المكونات الطازجة فقط لابتكار أطباق صحية ولذيذة.",
+                f1t: "سلطة طازجة", f1d: "صحية وشهية، محضرة من مكونات موسمية طازجة.", f2t: "الحلويات", f2d: "نكهة الليمون الأصلية وحلويات متوسطية ستحبها.",
+                mt: "استكشف قائمتنا", c1: "وجبات سريعة", c2: "وجبات رئيسية", c3: "إفطار", c4: "غداء", c5: "عشاء", c6: "مشروبات", c7: "نرجيلة",
+                msg: ["🍋 خصم 20% على الوجبات السريعة!", "🚚 توصيل مجاني على الـ 3 وجبات!", "💨 جرب نكهات النرجيلة الجديدة!"]
             }
         };
 
@@ -168,13 +185,15 @@
 
         function showNotif(text) {
             const container = document.getElementById('notif-container');
-            const n = document.createElement('div'); n.className = 'notification'; n.innerText = text;
+            const n = document.createElement('div'); n.className = 'notification'; n.innerHTML = text;
             container.appendChild(n);
             setTimeout(() => n.classList.add('show'), 100);
-            setTimeout(() => { n.classList.remove('show'); setTimeout(() => n.remove(), 600); }, 4000);
+            setTimeout(() => { n.classList.remove('show'); setTimeout(() => n.remove(), 600); }, 4500);
         }
+
+        // تشغيل الإشعارات
         setTimeout(() => showNotif(data[lang].msg[0]), 3000);
-        setTimeout(() => showNotif(data[lang].msg[1]), 8000);
+        setTimeout(() => showNotif(data[lang].msg[1]), 9000);
     </script>
 </body>
 </html>
