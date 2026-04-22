@@ -1,145 +1,144 @@
-/* General Reset */
-* {
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-}
-
-body {
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-    line-height: 1.6;
+    background-color: #f4f4f4;
     color: #333;
-    background-color: #ffffff;
 }
 
-/* Header Styling */
 header {
-    background-color: #fff;
-    padding: 20px;
+    background-color: #495E57;
+    padding: 20px 0;
     text-align: center;
 }
 
 .main-logo {
-    max-width: 280px;
+    max-width: 200px;
     height: auto;
 }
 
-/* Navigation - Flexbox Layout */
 nav {
-    background-color: #495E57; /* Little Lemon Corporate Green */
-    padding: 15px 0;
+    background-color: #F4CE14;
+    padding: 10px 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 }
 
 .nav-links {
+    list-style: none;
     display: flex;
     justify-content: center;
-    list-style: none;
-    gap: 40px;
+    margin: 0;
+    padding: 0;
 }
 
-.nav-links li a {
-    color: #EDEFEE;
+.nav-links li {
+    margin: 0 20px;
+}
+
+.nav-links a {
     text-decoration: none;
-    font-weight: 600;
-    text-transform: uppercase;
-    transition: color 0.3s ease;
+    color: #495E57;
+    font-weight: bold;
+    font-size: 1.1rem;
+    transition: color 0.3s;
 }
 
-/* Pseudo-class for Interactivity */
-.nav-links li a:hover, .active {
-    color: #F4CE14; /* Little Lemon Corporate Yellow */
+.nav-links a:hover, .nav-links a.active {
+    color: #ee9972;
 }
 
-/* Main Content Styling */
 .promo-banner {
-    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.6)), url('banner.jpg');
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('Asset 20@4x.png');
     background-size: cover;
     background-position: center;
     height: 400px;
     display: flex;
-    justify-content: center;
     align-items: center;
-    color: white;
+    justify-content: center;
     text-align: center;
+    color: white;
 }
 
 .banner-content h1 {
-    font-size: 3.5rem;
+    font-size: 3rem;
     margin-bottom: 10px;
 }
 
 .cta-button {
     background-color: #F4CE14;
-    color: #333;
+    color: #495E57;
     border: none;
-    padding: 15px 35px;
-    font-size: 1rem;
+    padding: 15px 30px;
+    font-size: 1.1rem;
     font-weight: bold;
-    border-radius: 16px;
+    border-radius: 8px;
     cursor: pointer;
-    transition: transform 0.2s ease, background-color 0.3s ease;
+    transition: background-color 0.3s;
 }
 
 .cta-button:hover {
-    transform: scale(1.05);
-    background-color: #fff;
+    background-color: #ee9972;
 }
 
-/* Three Columns - Flexbox Layout */
 .features-flex {
     display: flex;
-    justify-content: center;
-    padding: 60px 10%;
-    gap: 30px;
+    justify-content: space-around;
+    padding: 50px 10%;
+    gap: 20px;
 }
 
 .feature-item {
     flex: 1;
-    background: #fff;
+    background: white;
+    padding: 20px;
     border-radius: 12px;
-    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     text-align: center;
-    transition: box-shadow 0.3s ease;
-}
-
-.feature-item:hover {
-    box-shadow: 0 8px 15px rgba(0,0,0,0.1);
 }
 
 .feature-item img {
     width: 100%;
     height: 200px;
     object-fit: cover;
+    border-radius: 8px;
 }
 
-.feature-item h3 {
-    margin: 15px 0;
-    color: #495E57;
-}
-
-.feature-item p {
-    padding: 0 15px 20px;
-    font-size: 0.9rem;
-    color: #555;
-}
-
-/* Footer - Two Columns Flexbox */
 footer {
+    background-color: #495E57;
+    color: white;
+    padding: 40px 10%;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 30px 10%;
-    background-color: #EDEFEE;
-    border-top: 1px solid #ddd;
 }
 
 .small-logo {
-    max-width: 60px;
-    height: auto;
+    max-width: 80px;
+}
+
+.footer-right {
+    text-align: right;
 }
 
 .footer-right p {
-    font-size: 0.85rem;
-    color: #495E57;
-    text-align: right;
+    margin: 5px 0;
+}
+
+@media (max-width: 768px) {
+    .features-flex {
+        flex-direction: column;
+    }
+    
+    footer {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .footer-right {
+        text-align: center;
+        margin-top: 20px;
+    }
 }

@@ -1,68 +1,218 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" id="html-tag">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Little Lemon - Authentic Mediterranean Dining Experience">
-    <title>Little Lemon | Home</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Little Lemon | Prototype</title>
+    <style>
+        :root {
+            /* اللون الأخضر الفاتح المشع المطلوب */
+            --vibrant-green: #40ff00; 
+            --dark-green: #495E57;
+            --lemon-yellow: #F4CE14;
+            --off-white: #EDEFEE;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--off-white);
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        [dir="rtl"] body { font-family: 'Arial', sans-serif; }
+
+        header {
+            background-color: var(--dark-green);
+            padding: 15px 25px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 4px solid var(--vibrant-green); /* خط أخضر مشع */
+        }
+
+        .main-logo { max-width: 150px; }
+
+        .lang-switch {
+            background-color: var(--vibrant-green);
+            color: var(--dark-green);
+            border: none;
+            padding: 10px 20px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: bold;
+            box-shadow: 0 0 10px var(--vibrant-green); /* تأثير إشعاع */
+        }
+
+        nav {
+            background-color: var(--lemon-yellow);
+            padding: 12px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-links li { margin: 0 20px; }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark-green);
+            font-weight: 800;
+            transition: 0.3s;
+        }
+
+        .promo-banner {
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('Asset 20@4x.png');
+            background-size: cover;
+            background-position: center;
+            height: 350px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            border-bottom: 5px solid var(--vibrant-green);
+        }
+
+        .cta-button {
+            background-color: var(--vibrant-green);
+            color: var(--dark-green);
+            border: none;
+            padding: 15px 35px;
+            border-radius: 30px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 15px;
+            box-shadow: 0 0 15px rgba(64, 255, 0, 0.4);
+        }
+
+        .features-flex {
+            display: flex;
+            justify-content: center;
+            padding: 50px 10%;
+            gap: 25px;
+        }
+
+        .feature-item {
+            flex: 1;
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            text-align: center;
+            border: 1px solid var(--vibrant-green);
+        }
+
+        .feature-item img { width: 100%; height: 200px; object-fit: cover; }
+
+        footer {
+            background-color: var(--dark-green);
+            color: white;
+            padding: 30px 10%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 8px solid var(--vibrant-green);
+        }
+
+        @media (max-width: 768px) {
+            .features-flex { flex-direction: column; }
+        }
+    </style>
 </head>
 <body>
 
     <header>
-        <div class="logo-container">
-            <img src="Asset 16@4x.png" alt="Little Lemon Logo" class="main-logo">
-        </div>
+        <img src="Asset 16@4x.png" alt="Logo" class="main-logo">
+        <button class="lang-switch" onclick="toggleLanguage()" id="langBtn">العربية</button>
     </header>
 
     <nav>
         <ul class="nav-links">
-            <li><a href="index.html" class="active">Home</a></li>
-            <li><a href="#menu">Menu</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#reservations">Reservations</a></li>
+            <li><a href="#" id="nav-home">Home</a></li>
+            <li><a href="#" id="nav-menu">Menu</a></li>
+            <li><a href="#" id="nav-res">Reservations</a></li>
         </ul>
     </nav>
 
     <main>
         <section class="promo-banner">
             <div class="banner-content">
-                <h1>Mediterranean Flavors</h1>
-                <p>Traditional recipes served with a modern twist. Experience the freshest ingredients in every bite.</p>
-                <button class="cta-button">Reserve a Table</button>
+                <h1 id="hero-title">Little Lemon</h1>
+                <p id="hero-desc">Experience Mediterranean perfection with us.</p>
+                <button class="cta-button" id="hero-btn">Reserve a Table</button>
             </div>
         </section>
 
         <section class="features-flex">
             <article class="feature-item">
-                <img src="dish1.jpg" alt="Seasonal Greek Salad">
-                <h3>Seasonal Dishes</h3>
-                <p>Our menu changes with the seasons to ensure the highest quality ingredients reach your plate.</p>
+                <img src="Asset 9@4x.png">
+                <h3 id="f1-t">Fresh Salad</h3>
+                <p id="f1-d">Healthy and delicious.</p>
             </article>
-
             <article class="feature-item">
-                <img src="chef.jpg" alt="Our Chef at work">
-                <h3>Authentic Heritage</h3>
-                <p>Recipes passed down through generations, maintaining the soul of Mediterranean cuisine.</p>
-            </article>
-
-            <article class="feature-item">
-                <img src="interior.jpg" alt="Restaurant Atmosphere">
-                <h3>Cosy Atmosphere</h3>
-                <p>Enjoy your meal in a warm, welcoming environment perfect for family and friends.</p>
+                <img src="Asset 14@4x.png">
+                <h3 id="f2-t">Desserts</h3>
+                <p id="f2-d">Authentic lemon flavor.</p>
             </article>
         </section>
     </main>
 
     <footer>
-        <div class="footer-left">
-            <img src="Asset 7@4x.png" alt="Little Lemon Icon" class="small-logo">
-        </div>
-        <div class="footer-right">
-            <p>&copy; 2026 Little Lemon Restaurant. All rights reserved.</p>
-            <p><strong>Developed by Shalee Khalil</strong> | Strategic Leader & Full Stack Developer</p>
+        <img src="Asset 7@4x.png" style="width: 70px;">
+        <div id="footer-text">
+            <p>&copy; 2026 Little Lemon. Developed by **Shalee Khalil**</p>
         </div>
     </footer>
 
+    <script>
+        const translations = {
+            en: {
+                btn: "العربية", home: "Home", menu: "Menu", res: "Reservations",
+                title: "Little Lemon", desc: "Experience Mediterranean perfection with us.",
+                btnText: "Reserve a Table", f1t: "Fresh Salad", f1d: "Healthy and delicious.",
+                f2t: "Desserts", f2d: "Authentic lemon flavor.", dev: "Developed by Shalee Khalil"
+            },
+            ar: {
+                btn: "English", home: "الرئيسية", menu: "القائمة", res: "الحجوزات",
+                title: "ليتل ليمون", desc: "استمتع بتجربة المذاق المتوسطي الأصيل معنا.",
+                btnText: "احجز طاولة الآن", f1t: "سلطة طازجة", f1d: "صحية وشهية جداً.",
+                f2t: "الحلويات", f2d: "نكهة الليمون الأصلية.", dev: "تطوير شعلي خليل"
+            }
+        };
+
+        let currentLang = 'en';
+
+        function toggleLanguage() {
+            currentLang = currentLang === 'en' ? 'ar' : 'en';
+            const html = document.getElementById('html-tag');
+            const lang = translations[currentLang];
+            
+            html.dir = currentLang === 'ar' ? 'rtl' : 'ltr';
+            html.lang = currentLang;
+
+            document.getElementById('langBtn').innerText = lang.btn;
+            document.getElementById('nav-home').innerText = lang.home;
+            document.getElementById('nav-menu').innerText = lang.menu;
+            document.getElementById('nav-res').innerText = lang.res;
+            document.getElementById('hero-title').innerText = lang.title;
+            document.getElementById('hero-desc').innerText = lang.desc;
+            document.getElementById('hero-btn').innerText = lang.btnText;
+            document.getElementById('f1-t').innerText = lang.f1t;
+            document.getElementById('f1-d').innerText = lang.f1d;
+            document.getElementById('f2-t').innerText = lang.f2t;
+            document.getElementById('f2-d').innerText = lang.f2d;
+        }
+    </script>
 </body>
 </html>
