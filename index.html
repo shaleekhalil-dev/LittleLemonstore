@@ -1,115 +1,104 @@
 <!DOCTYPE html>
-<html lang="en" id="main-html">
+<html lang="en" id="doc-html">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Little Lemon | Delicious Food Delivery</title>
+    <title>Little Lemon | Quality Dining</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
     <header>
-        <div class="logo-area">LITTLE LEMON</div>
-        <ul class="nav-links">
-            <li><a href="#" id="n-home">Home</a></li>
-            <li><a href="#" id="n-menu">Menu</a></li>
-            <li><a href="#" id="n-about">About</a></li>
-        </ul>
-        <button class="lang-btn" onclick="toggleLanguage()" id="l-btn">العربية</button>
+        <div class="logo">LITTLE LEMON</div>
+        <button class="lang-btn" onclick="switchLang()" id="btn-lang">العربية</button>
     </header>
 
     <section class="hero">
-        <div class="hero-text">
-            <h1 id="h-title">Delicious Meals<br>Delivered To You</h1>
-            <p id="h-desc">Order your favorite Mediterranean dishes and enjoy a unique dining experience at home.</p>
-            <button class="lang-btn" style="padding: 15px 30px;" id="h-btn">Order Now</button>
+        <div class="hero-content">
+            <h1 id="h-t">Mediterranean<br>Excellence</h1>
+            <p id="h-d">We bring the authentic taste of the sun to your table. Simple ingredients, masterful cooking, and a legacy of passion.</p>
+            <button class="lang-btn" style="padding: 18px 40px; font-size: 1.1rem;" id="h-btn">Book a Table</button>
         </div>
         <div class="hero-img">
-            <img src="Asset 20@4x.png" alt="Featured Dish">
+            <img src="Asset 20@4x.png">
         </div>
     </section>
 
     <div class="categories">
-        <div class="cat-item"><i>🍳</i><span id="c1">Breakfast</span></div>
-        <div class="cat-item"><i>🍔</i><span id="c2">Fast Food</span></div>
-        <div class="cat-item"><i>🍝</i><span id="c3">Lunch</span></div>
-        <div class="cat-item"><i>🥗</i><span id="c4">Salads</span></div>
-        <div class="cat-item"><i>☕</i><span id="c5">Drinks</span></div>
+        <div class="cat-card"><i>🍳</i><span id="c1">Breakfast</span></div>
+        <div class="cat-card"><i>🍔</i><span id="c2">Fast Food</span></div>
+        <div class="cat-card"><i>🍗</i><span id="c3">Lunch</span></div>
+        <div class="cat-card"><i>🥗</i><span id="c4">Salads</span></div>
+        <div class="cat-card"><i>💨</i><span id="c5">Shisha</span></div>
     </div>
 
-    <section class="food-section">
-        <h2 id="s-title">Featured Menu</h2>
-        <div class="food-grid">
-            <div class="food-card">
+    <section class="menu-section">
+        <h2 id="m-t">Our Signature Dishes</h2>
+        <div class="grid">
+            <div class="card">
                 <img src="Asset 9@4x.png">
-                <div class="food-card-info">
-                    <h3>Greek Salad</h3>
-                    <p>Traditional greek salad with olives and feta cheese.</p>
-                    <div class="price-tag">$12.00</div>
+                <div class="card-body">
+                    <h3>Greek Garden Salad</h3>
+                    <p>Crisp vegetables, feta cheese, and our secret lemon dressing.</p>
+                    <div class="price">$14.00</div>
                 </div>
             </div>
-            <div class="food-card">
+            <div class="card">
                 <img src="Asset 14@4x.png">
-                <div class="food-card-info">
-                    <h3>Lemon Dessert</h3>
-                    <p>Our signature lemon cake with creamy frosting.</p>
-                    <div class="price-tag">$8.00</div>
+                <div class="card-body">
+                    <h3>Lemon Glaze Cake</h3>
+                    <p>Light, fluffy, and bursting with fresh citrus notes.</p>
+                    <div class="price">$9.00</div>
                 </div>
             </div>
         </div>
     </section>
 
-    <div id="notif-container"></div>
+    <div id="notif-wrap"></div>
 
     <script>
-        const content = {
+        const dict = {
             en: {
-                btn: "العربية", n1: "Home", n2: "Menu", n3: "About",
-                ht: "Delicious Meals<br>Delivered To You", hd: "Order your favorite Mediterranean dishes and enjoy a unique dining experience at home.",
-                hb: "Order Now", c1: "Breakfast", c2: "Fast Food", c3: "Lunch", c4: "Salads", c5: "Drinks", st: "Featured Menu",
-                notifs: ["🍕 20% Off Fast Food!", "🚚 Free Delivery on 3+ Meals"]
+                btn: "العربية", ht: "Mediterranean<br>Excellence", hd: "We bring the authentic taste of the sun to your table. Simple ingredients, masterful cooking.",
+                hb: "Book a Table", c1: "Breakfast", c2: "Fast Food", c3: "Lunch", c4: "Salads", c5: "Shisha", mt: "Our Signature Dishes",
+                notifs: ["🍋 20% OFF ALL MEALS TODAY", "🚚 FREE DELIVERY FOR NEW USERS"]
             },
             ar: {
-                btn: "English", n1: "الرئيسية", n2: "المنيو", n3: "عن المطعم",
-                ht: "وجبات شهية<br>تصلك أينما كنت", hd: "اطلب أطباقك المتوسطية المفضلة واستمتع بتجربة طعام فريدة في منزلك.",
-                hb: "اطلب الآن", c1: "إفطار", c2: "وجبات سريعة", c3: "غداء", c4: "سلطات", c5: "مشروبات", st: "قائمة الطعام المميزة",
-                notifs: ["🍕 خصم 20% على الوجبات السريعة!", "🚚 توصيل مجاني عند طلب 3 وجبات"]
+                btn: "English", ht: "فخامة المذاق<br>المتوسطي", hd: "نأتي إليكم بنكهات الشمس الأصيلة. مكونات بسيطة، طهي محترف، وإرث من الشغف في كل طبق.",
+                hb: "احجز طاولة", c1: "إفطار", c2: "وجبات سريعة", c3: "غداء", c4: "سلطات", c5: "نرجيلة", mt: "أطباقنا المميزة",
+                notifs: ["🍋 خصم 20% على جميع الوجبات اليوم!", "🚚 توصيل مجاني للمستخدمين الجدد"]
             }
         };
 
-        let currentLang = 'en';
-        function toggleLanguage() {
-            currentLang = currentLang === 'en' ? 'ar' : 'en';
-            document.getElementById('main-html').dir = currentLang === 'ar' ? 'rtl' : 'ltr';
-            const c = content[currentLang];
-            document.getElementById('l-btn').innerText = c.btn;
-            document.getElementById('n-home').innerText = c.n1;
-            document.getElementById('n-menu').innerText = c.n2;
-            document.getElementById('n-about').innerText = c.n3;
-            document.getElementById('h-title').innerHTML = c.ht;
-            document.getElementById('h-desc').innerText = c.hd;
-            document.getElementById('h-btn').innerText = c.hb;
-            document.getElementById('c1').innerText = c.c1;
-            document.getElementById('c2').innerText = c.c2;
-            document.getElementById('c3').innerText = c.c3;
-            document.getElementById('c4').innerText = c.c4;
-            document.getElementById('c5').innerText = c.c5;
-            document.getElementById('s-title').innerText = c.st;
+        let lang = 'en';
+        function switchLang() {
+            lang = lang === 'en' ? 'ar' : 'en';
+            document.getElementById('doc-html').dir = lang === 'ar' ? 'rtl' : 'ltr';
+            const d = dict[lang];
+            document.getElementById('btn-lang').innerText = d.btn;
+            document.getElementById('h-t').innerHTML = d.ht;
+            document.getElementById('h-d').innerText = d.hd;
+            document.getElementById('h-btn').innerText = d.hb;
+            document.getElementById('c1').innerText = d.c1;
+            document.getElementById('c2').innerText = d.c2;
+            document.getElementById('c3').innerText = d.c3;
+            document.getElementById('c4').innerText = d.c4;
+            document.getElementById('c5').innerText = d.c5;
+            document.getElementById('m-t').innerText = d.mt;
         }
 
-        function showNotif(text) {
-            const container = document.getElementById('notif-container');
-            const toast = document.createElement('div');
-            toast.className = 'notif-toast';
-            toast.innerText = text;
-            container.appendChild(toast);
-            setTimeout(() => toast.classList.add('show'), 100);
-            setTimeout(() => { toast.classList.remove('show'); setTimeout(() => toast.remove(), 500); }, 4000);
+        function showToast(text) {
+            const container = document.getElementById('notif-wrap');
+            const t = document.createElement('div');
+            t.className = 'toast'; t.innerText = text;
+            container.appendChild(t);
+            setTimeout(() => t.classList.add('active'), 100);
+            setTimeout(() => { t.classList.remove('active'); setTimeout(() => t.remove(), 600); }, 4500);
         }
 
         window.onload = () => {
-            setTimeout(() => showNotif(content[currentLang].notifs[0]), 3000);
-            setTimeout(() => showNotif(content[currentLang].notifs[1]), 8000);
+            setTimeout(() => showToast(dict[lang].notifs[0]), 3000);
+            setTimeout(() => showToast(dict[lang].notifs[1]), 8000);
         };
     </script>
 </body>
