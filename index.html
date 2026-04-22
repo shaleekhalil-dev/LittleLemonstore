@@ -3,89 +3,103 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Little Lemon | The Grand Experience</title>
+    <title>Little Lemon | The Elite Dining</title>
     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;900&display=swap" rel="stylesheet">
 </head>
 <body>
 
     <nav>
-        <img src="Asset 16@4x.png" style="height: 50px;">
-        <ul class="nav-links">
-            <li><a href="#home">Home</a></li>
-            <li><a href="#menu">The Menu</a></li>
-            <li><a href="#about">Our Story</a></li>
-            <li><button onclick="toggleLang()" id="langBtn" style="cursor:pointer; background:none; border:1px solid #495E57; padding:5px 10px;">العربية</button></li>
-        </ul>
+        <div class="logo">L.LEMON</div>
+        <button class="lang-toggle" onclick="swapLang()" id="lBtn">العربية</button>
     </nav>
 
-    <section class="hero" id="home">
-        <h1 id="mainTitle">LITTLE LEMON</h1>
-        <p id="subTitle">WHERE HERITAGE MEETS PERFECTION</p>
-        <a href="#menu" class="cta-btn" id="ctaText">EXPLORE TASTE</a>
-    </section>
-
-    <section class="about-luxury" id="about">
-        <h2 id="storyTitle">Legacy from the Grove</h2>
-        <p id="storyText">A bite of history, a drop of sunshine. Our journey started in the heart of the lemon groves, bringing you flavors that have been perfected over generations. Pure, authentic, and truly yours.</p>
-    </section>
-
-    <section class="menu-grid" id="menu">
-        <div class="menu-item">
-            <img src="Asset 9@4x.png" alt="Salad">
-            <div class="menu-overlay"><h3>Fresh Selection</h3><p>Picked from the heart of the farm</p></div>
+    <div class="hero">
+        <div class="hero-content">
+            <p id="h-sub">ESTABLISHED 2026</p>
+            <h1 id="h-main">Taste the<br>Extraordinary</h1>
         </div>
-        <div class="menu-item">
-            <img src="Asset 14@4x.png" alt="Dessert">
-            <div class="menu-overlay"><h3>Sweet Heritage</h3><p>Traditional citrus delights</p></div>
+    </div>
+
+    <section class="content-rich">
+        <div class="text-area">
+            <h2 id="a-title">Our Philosophy</h2>
+            <p id="a-p1">We don't just serve food; we curate moments. Our kitchen is a sanctuary where tradition meets modern culinary art. Every ingredient is selected with a meticulous eye for quality and freshness.</p>
+            <p id="a-p2">From the rolling hills of our ancestral lands to your plate, the journey is one of passion, precision, and pure flavor.</p>
         </div>
-        <div class="menu-item">
-            <img src="Asset 20@4x.png" alt="Main">
-            <div class="menu-overlay"><h3>Grand Feast</h3><p>The best of our land</p></div>
+        <div style="height: 500px; background: #1a1a1a; border: 1px solid var(--gold);">
+            <img src="Asset 20@4x.png" style="width:100%; height:100%; object-fit:cover; opacity:0.6;">
         </div>
     </section>
 
-    <div id="notif-container"></div>
+    <div class="experience-grid">
+        <div class="card">
+            <img src="Asset 9@4x.png" class="card-img">
+            <div class="card-info"><h3 id="c1">The Greenery</h3></div>
+        </div>
+        <div class="card">
+            <img src="Asset 14@4x.png" class="card-img">
+            <div class="card-info"><h3 id="c2">Golden Sweets</h3></div>
+        </div>
+        <div class="card">
+            <img src="Asset 20@4x.png" class="card-img">
+            <div class="card-info"><h3 id="c3">Signature Cuts</h3></div>
+        </div>
+    </div>
+
+    <div id="notif-box"></div>
+
+    <footer>
+        <p id="foot">© 2026 LITTLE LEMON | CRAFTED BY SHALEE KHALIL</p>
+    </footer>
 
     <script>
-        const content = {
+        const ui = {
             en: {
-                mainTitle: "LITTLE LEMON", subTitle: "WHERE HERITAGE MEETS PERFECTION", cta: "EXPLORE TASTE",
-                storyTitle: "Legacy from the Grove", storyText: "A bite of history, a drop of sunshine. Our journey started in the heart of the lemon groves, bringing you flavors that have been perfected over generations.",
-                notifs: ["🍋 20% OFF YOUR FIRST ORDER", "🚚 FAST DELIVERY TO YOUR DOOR"]
+                btn: "العربية", hsub: "ESTABLISHED 2026", hmain: "Taste the<br>Extraordinary",
+                at: "Our Philosophy", ap1: "We don't just serve food; we curate moments. Our kitchen is a sanctuary where tradition meets modern culinary art.",
+                ap2: "From the rolling hills of our ancestral lands to your plate, the journey is one of passion.",
+                c1: "The Greenery", c2: "Golden Sweets", c3: "Signature Cuts", foot: "© 2026 LITTLE LEMON | CRAFTED BY SHALEE KHALIL",
+                n: ["✨ EXCLUSIVE TABLE BOOKING OPEN", "🥂 COMPLIMENTARY DRINK ON ARRIVAL"]
             },
             ar: {
-                mainTitle: "ليتل ليمون", subTitle: "حيث يلتقي التراث بالإتقان", cta: "استكشف المذاق",
-                storyTitle: "إرثٌ من قلب البيّارة", storyText: "لقمة من التاريخ، وقطرة من ضوء الشمس. بدأت رحلتنا من قلب مزارع الليمون، لنقدم لكم نكهات صُقلت عبر الأجيال. أصيلة، طازجة، ولكم وحدكم.",
-                notifs: ["🍋 خصم 20% على طلبك الأول", "🚚 توصيل سريع إلى باب منزلك"]
+                btn: "English", hsub: "تأسس عام 2026", hmain: "تذوق<br>الفخامة",
+                at: "فلسفتنا", ap1: "نحن لا نقدم الطعام فحسب، بل نصنع اللحظات. مطبخنا هو محراب يلتقي فيه التراث بفن الطهي الحديث.",
+                ap2: "من تلال أراضي أجدادنا الخضراء إلى طبقك، رحلة عنوانها الشغف والدقة والنكهة الخالصة.",
+                c1: "الخضرة النضرة", c2: "الحلويات الذهبية", c3: "أطباقنا الخاصة", foot: "© 2026 ليتل ليمون | تصميم شعلي خليل",
+                n: ["✨ باب الحجز الخاص مفتوح الآن", "🥂 مشروب ترحيبي عند وصولك"]
             }
         };
 
-        let currentLang = 'en';
-        function toggleLang() {
-            currentLang = currentLang === 'en' ? 'ar' : 'en';
-            document.body.dir = currentLang === 'ar' ? 'rtl' : 'ltr';
-            const c = content[currentLang];
-            document.getElementById('mainTitle').innerText = c.mainTitle;
-            document.getElementById('subTitle').innerText = c.subTitle;
-            document.getElementById('ctaText').innerText = c.cta;
-            document.getElementById('storyTitle').innerText = c.storyTitle;
-            document.getElementById('storyText').innerText = c.storyText;
-            document.getElementById('langBtn').innerText = currentLang === 'en' ? 'العربية' : 'English';
+        let current = 'en';
+        function swapLang() {
+            current = current === 'en' ? 'ar' : 'en';
+            document.body.dir = current === 'ar' ? 'rtl' : 'ltr';
+            const s = ui[current];
+            document.getElementById('lBtn').innerText = s.btn;
+            document.getElementById('h-sub').innerText = s.hsub;
+            document.getElementById('h-main').innerHTML = s.hmain;
+            document.getElementById('a-title').innerText = s.at;
+            document.getElementById('a-p1').innerText = s.ap1;
+            document.getElementById('a-p2').innerText = s.ap2;
+            document.getElementById('c1').innerText = s.c1;
+            document.getElementById('c2').innerText = s.c2;
+            document.getElementById('c3').innerText = s.c3;
+            document.getElementById('foot').innerText = s.foot;
         }
 
-        function showLuxuryNotif(text) {
-            const container = document.getElementById('notif-container');
+        function fireNotif(t) {
+            const b = document.getElementById('notif-box');
             const n = document.createElement('div');
-            n.className = 'luxury-notif';
-            n.innerText = text;
-            container.appendChild(n);
-            setTimeout(() => n.classList.add('show'), 500);
-            setTimeout(() => { n.classList.remove('show'); setTimeout(() => n.remove(), 1000); }, 5000);
+            n.className = 'notif'; n.innerText = t;
+            b.appendChild(n);
+            setTimeout(() => n.classList.add('active'), 100);
+            setTimeout(() => { n.classList.remove('active'); setTimeout(()=>n.remove(), 600); }, 5000);
         }
 
         window.onload = () => {
-            setTimeout(() => showLuxuryNotif(content[currentLang].notifs[0]), 3000);
-            setTimeout(() => showLuxuryNotif(content[currentLang].notifs[1]), 8000);
+            setTimeout(() => fireNotif(ui[current].n[0]), 3000);
+            setTimeout(() => fireNotif(ui[current].n[1]), 8000);
         };
     </script>
 </body>
