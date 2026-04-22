@@ -1,137 +1,113 @@
+:root {
+    --primary-lemon: #F4CE14;
+    --soft-lemon: #fdfae5;
+    --dark-green: #495E57;
+    --glass: rgba(255, 255, 255, 0.85);
+    --text-main: #1a1a1a;
+    --transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+* {
+    margin: 0; padding: 0; box-sizing: border-box;
+    font-family: 'Segoe UI', Roboto, sans-serif;
+}
+
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    background-color: #fcfcfc; /* خلفية فاتحة جداً ونظيفة */
-    color: #333;
+    background: #ffffff;
+    color: var(--text-main);
+    overflow-x: hidden;
+    scroll-behavior: smooth;
 }
 
-header {
-    background-color: #495E57; /* الأخضر الداكن الخاص بليتل ليمون */
-    padding: 20px 0;
-    text-align: center;
-}
-
-.main-logo {
-    max-width: 200px;
-    height: auto;
-}
-
+/* Navbar الفخم */
 nav {
-    background-color: #FDFCE0; /* ليموني فاتح جداً ناعم بدلاً من الأصفر الفاقع */
-    padding: 10px 0;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    border-bottom: 1px solid rgba(73, 94, 87, 0.1);
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 20px 8%; background: var(--glass);
+    backdrop-filter: blur(10px); position: fixed; width: 100%; top: 0; z-index: 1000;
+    border-bottom: 1px solid rgba(255,255,255,0.3);
 }
 
-.nav-links {
-    list-style: none;
-    display: flex;
-    justify-content: center;
-    margin: 0;
-    padding: 0;
-}
-
-.nav-links li {
-    margin: 0 20px;
-}
-
+.nav-links { display: flex; list-style: none; gap: 40px; }
 .nav-links a {
-    text-decoration: none;
-    color: #495E57;
-    font-weight: bold;
-    font-size: 1.1rem;
-    transition: color 0.3s;
+    text-decoration: none; color: var(--dark-green);
+    font-weight: 600; text-transform: uppercase; letter-spacing: 1px;
+    font-size: 0.9rem; transition: var(--transition);
+}
+.nav-links a:hover { color: var(--primary-lemon); transform: translateY(-2px); }
+
+/* Hero Section - الانبهار الأول */
+.hero {
+    height: 100vh; background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('Asset 20@4x.png');
+    background-size: cover; background-position: center; background-attachment: fixed;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    text-align: center; color: white;
 }
 
-.nav-links a:hover, .nav-links a.active {
-    color: #D4D925; /* أخضر ليموني ناعم عند التمرير بدلاً من البرتقالي */
+.hero h1 {
+    font-size: 5rem; font-weight: 900; margin-bottom: 20px;
+    animation: fadeInDown 1.5s ease; text-shadow: 0 10px 30px rgba(0,0,0,0.5);
 }
 
-.promo-banner {
-    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('Asset 20@4x.png');
-    background-size: cover;
-    background-position: center;
-    height: 400px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    color: white;
+.hero p {
+    font-size: 1.5rem; letter-spacing: 3px; font-weight: 300;
+    margin-bottom: 40px; animation: fadeInUp 1.5s ease;
 }
 
-.banner-content h1 {
-    font-size: 3.5rem;
-    margin-bottom: 10px;
+/* أزرار أكشن فخمة */
+.cta-btn {
+    padding: 18px 45px; background: var(--primary-lemon); color: var(--dark-green);
+    text-decoration: none; font-weight: 800; border-radius: 0;
+    box-shadow: 0 20px 40px rgba(244, 206, 20, 0.3); transition: var(--transition);
+}
+.cta-btn:hover { transform: scale(1.1); background: white; }
+
+/* قسم المنيو "الشبكي" الحديث */
+.menu-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 0; padding: 0;
 }
 
-.cta-button {
-    background-color: #FDFCE0; /* ليموني فاتح */
-    color: #495E57;
-    border: 1px solid #FEF7A5;
-    padding: 15px 35px;
-    font-size: 1.1rem;
-    font-weight: bold;
-    border-radius: 50px; /* شكل بيضاوي ناعم */
-    cursor: pointer;
-    transition: all 0.3s ease;
+.menu-item {
+    position: relative; height: 400px; overflow: hidden; cursor: pointer;
 }
 
-.cta-button:hover {
-    background-color: #FEF7A5;
-    transform: scale(1.05);
+.menu-item img {
+    width: 100%; height: 100%; object-fit: cover; transition: var(--transition);
 }
 
-.features-flex {
-    display: flex;
-    justify-content: space-around;
-    padding: 50px 10%;
-    gap: 25px;
+.menu-overlay {
+    position: absolute; inset: 0; background: rgba(73, 94, 87, 0.8);
+    display: flex; flex-direction: column; justify-content: center; align-items: center;
+    color: white; opacity: 0; transition: var(--transition); transform: translateY(100%);
 }
 
-.feature-item {
-    flex: 1;
-    background: white;
-    padding: 25px;
-    border-radius: 30px 10px 30px 10px; /* زوايا فنية ناعمة */
-    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
-    text-align: center;
-    border: 1px solid #FDFCE0;
+.menu-item:hover .menu-overlay { opacity: 1; transform: translateY(0); }
+.menu-item:hover img { transform: scale(1.2); }
+
+/* قصة المطعم بتصميم "البيارة" */
+.about-luxury {
+    padding: 100px 15%; text-align: center; background: var(--soft-lemon);
 }
 
-.feature-item img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-    border-radius: 20px 5px 20px 5px;
-}
+.about-luxury h2 { font-size: 3rem; color: var(--dark-green); margin-bottom: 30px; }
+.about-luxury p { font-size: 1.2rem; line-height: 2; color: #555; max-width: 800px; margin: 0 auto; }
 
-footer {
-    background-color: #495E57;
-    color: white;
-    padding: 40px 10%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+/* الإشعارات العائمة */
+#notif-container { position: fixed; bottom: 30px; left: 30px; z-index: 2000; }
+.luxury-notif {
+    background: var(--dark-green); color: white; padding: 20px 35px;
+    margin-top: 10px; border-radius: 0; font-weight: 600;
+    border-left: 10px solid var(--primary-lemon);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+    transform: translateX(-150%); transition: var(--transition);
 }
+.luxury-notif.show { transform: translateX(0); }
 
-.small-logo {
-    max-width: 80px;
-}
-
-.footer-right {
-    text-align: right;
-}
+/* Animations */
+@keyframes fadeInDown { from { opacity: 0; transform: translateY(-50px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes fadeInUp { from { opacity: 0; transform: translateY(50px); } to { opacity: 1; transform: translateY(0); } }
 
 @media (max-width: 768px) {
-    .features-flex {
-        flex-direction: column;
-    }
-    footer {
-        flex-direction: column;
-        text-align: center;
-    }
+    .hero h1 { font-size: 3rem; }
+    .nav-links { display: none; }
 }
