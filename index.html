@@ -1,8 +1,3 @@
-أبشر يا شعلي، عدلت القصة وخليتها تفيض أصالة وبساطة، واستبدلت كلمة "المتوسطية" بكلمة **"بلادنا"** اللي بتعطي شعور بالدفء والانتماء، وضبطت التنسيق ليكون مريحاً وأنيقاً.
-
-إليك الكود المحدث بالكامل (استبدل محتوى ملف `index.html`):
-
-```html
 <!DOCTYPE html>
 <html lang="en" id="html-tag">
 <head>
@@ -70,7 +65,7 @@
         .menu-card {
             background: var(--white); padding: 25px; border-radius: 20px;
             border: 2px solid var(--vibrant-lemon); box-shadow: 0 4px 12px rgba(0,0,0,0.03);
-            transition: 0.3s; cursor: pointer;
+            transition: 0.3s; cursor: pointer; text-align: center;
         }
         .menu-card:hover { background: var(--vibrant-lemon); transform: scale(1.1); }
         .menu-card i { font-size: 2.5rem; display: block; margin-bottom: 15px; }
@@ -110,7 +105,7 @@
         <section class="about-section">
             <h2 id="ab-t">Our Story</h2>
             <div class="about-container">
-                <p id="ab-p" style="line-height: 1.8;">Welcome to Little Lemon, where we bring the authentic flavors of our land straight to your table. Our chefs use only the freshest ingredients to create dishes that feel like home.</p>
+                <p id="ab-p" style="line-height: 2;">Welcome to Little Lemon, where we bring the authentic flavors of our land straight to your table. Our chefs use only the freshest ingredients to create dishes that feel like home.</p>
             </div>
         </section>
 
@@ -133,7 +128,7 @@
                 <div class="menu-card"><i>🍔</i><h4 id="c1">Fast Food</h4></div>
                 <div class="menu-card"><i>🥘</i><h4 id="c2">Main Dishes</h4></div>
                 <div class="menu-card"><i>🍳</i><h4 id="c3">Breakfast</h4></div>
-                <div class="menu-card"><i>🍝</i><h4 id="c4">Lunch</h4></div>
+                <div class="menu-card)<i>🍝</i><h4 id="c4">Lunch</h4></div>
                 <div class="menu-card"><i>🥗</i><h4 id="c5">Dinner</h4></div>
                 <div class="menu-card"><i>☕</i><h4 id="c6">Drinks</h4></div>
                 <div class="menu-card"><i>💨</i><h4 id="c7">Shisha</h4></div>
@@ -156,7 +151,7 @@
             },
             ar: {
                 btn: "English", n1: "الرئيسية", n2: "المنيو", n3: "الحجوزات", h1: "ليتل ليمون", hp: "نكهات أصيلة من خير بلادنا",
-                ab_t: "حكاية ليمونة.. من قلب الدار", ab_p: "في ليتل ليمون، بنقدم لقمة هنية مغموسة بالحب والأصالة. حكايتنا بدت من شغفنا بنكهات بلادنا الطيبة، بنحضر كل طبق بمكونات طازجة كأنها مقطوفة هسا من بيارة الدار، عشان تذوقوا الطعم الأصيل اللي بذكركم بجمعة العيلة ولمة الحبايب.",
+                ab_t: "حكاية ليمونة.. من قلب الدار", ab_p: "في ليتل ليمون، ما بنقدم بس أكل، إحنا بنقدم لقمة هنية مغموسة بالحب والأصالة. حكايتنا بدت من شغفنا بنكهات بلادنا الطيبة، بنحضر كل طبق بمكونات طازجة كأنها مقطوفة هسا من بيارة الدار، عشان تذوقوا الطعم الأصيل اللي بذكركم بجمعة العيلة ولمة الحبايب.",
                 f1t: "سلطة طازجة", f1d: "صحية وشهية، محضرة من خيرات الموسم بتتبيلة بلدية.", f2t: "الحلويات", f2d: "نكهة الليمون المنعشة وحلويات من ريحة زمان ستحبها.",
                 mt: "استكشف قائمتنا", c1: "وجبات سريعة", c2: "وجبات رئيسية", c3: "إفطار", c4: "غداء", c5: "عشاء", c6: "مشروبات", c7: "نرجيلة",
                 msg: ["🍋 خصم 20% على الوجبات السريعة!", "🚚 توصيل مجاني على الـ 3 وجبات!", "💨 جرب نكهات النرجيلة الجديدة!"]
@@ -192,4 +187,3 @@
     </script>
 </body>
 </html>
-```
